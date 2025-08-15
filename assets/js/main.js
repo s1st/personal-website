@@ -410,7 +410,8 @@
 				
 				skillFills.forEach(skillFill => {
 					const level = skillFill.getAttribute('data-level');
-					skillFill.style.setProperty('--skill-level', level + '%');
+					// Remove CSS custom property usage for Safari compatibility
+					// skillFill.style.setProperty('--skill-level', level + '%');
 					
 					// Create intersection observer to animate when visible
 					const observer = new IntersectionObserver((entries) => {
@@ -419,7 +420,7 @@
 								console.log('Skill fill intersecting, animating:', level + '%'); // Debug log
 								// Add animation class
 								skillFill.classList.add('animate');
-								// Animate the width
+								// Animate the width directly for Safari compatibility
 								setTimeout(() => {
 									skillFill.style.width = level + '%';
 								}, 100);

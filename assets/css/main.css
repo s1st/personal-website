@@ -973,8 +973,14 @@ input, select, textarea {
 			background: linear-gradient(90deg, #4CAF50, #8BC34A);
 			border-radius: 4px;
 			width: 0; /* Start at 0, will animate to data-level */
+			-webkit-transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			-moz-transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			-ms-transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			-o-transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 			transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 			position: relative;
+			-webkit-transform: translateZ(0); /* Force hardware acceleration on Safari */
+			transform: translateZ(0);
 		}
 
 		/* Disable shimmer/reflecting animation on skill bars */
@@ -994,9 +1000,10 @@ input, select, textarea {
 			text-align: right;
 		}
 
-		/* Animate skill bars when they come into view */
+		/* Animate skill bars when they come into view - Safari compatible */
 		.skill-fill.animate {
-			width: var(--skill-level);
+			/* Remove CSS custom property usage for Safari compatibility */
+			/* width: var(--skill-level); */
 		}
 
 		/* Responsive design for skill charts */
