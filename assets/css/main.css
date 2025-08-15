@@ -704,6 +704,11 @@ input, select, textarea {
 				width: 100%;
 			}
 
+		/* Remove dark overlay from main images for better visibility */
+		.image.main:before {
+			display: none !important;
+		}
+
 		@media screen and (max-width: 736px) {
 
 			.image.main {
