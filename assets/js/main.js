@@ -111,12 +111,18 @@
 									$body.removeClass('is-switching');
 								}, (initial ? 1000 : 0));
 
-							return;
+							// Window stuff.
+								$window
+									.triggerHandler('resize.flexbox-fix')
+									.trigger('scroll');
+
+							// Done.
+								return;
 
 						}
 
-					// Lock.
-						locked = true;
+				// Lock.
+					locked = true;
 
 				// Article already visible? Just swap articles.
 					if ($body.hasClass('is-article-visible')) {
@@ -132,27 +138,23 @@
 								// Hide current article.
 									$currentArticle.hide();
 
-								// Show article.
+								// Show new article.
 									$article.show();
 
-								// Activate article.
+								// Activate new article.
+									$article.addClass('active');
+
+								// Window stuff.
+									$window
+										.triggerHandler('resize.flexbox-fix')
+										.trigger('scroll');
+
+								// Unlock.
 									setTimeout(function() {
+										locked = false;
+									}, delay);
 
-										$article.addClass('active');
-
-										// Window stuff.
-											$window
-												.scrollTop(0)
-												.triggerHandler('resize.flexbox-fix');
-
-										// Unlock.
-											setTimeout(function() {
-												locked = false;
-											}, delay);
-
-									}, 25);
-
-							}, delay);
+							}, 25);
 
 					}
 
@@ -160,37 +162,25 @@
 					else {
 
 						// Mark as visible.
-							$body
-								.addClass('is-article-visible');
+							$body.addClass('is-article-visible');
 
-						// Show article.
+						// Deactivate all articles.
+							$main_articles.removeClass('active');
+
+						// Hide header, footer.
+							$header.hide();
+							$footer.hide();
+
+						// Show main, article.
+							$main.show();
+							$article.show();
+
+						// Activate article.
+							$article.addClass('active');
+
+						// Unlock.
 							setTimeout(function() {
-
-								// Hide header, footer.
-									$header.hide();
-									$footer.hide();
-
-								// Show main, article.
-									$main.show();
-									$article.show();
-
-								// Activate article.
-									setTimeout(function() {
-
-										$article.addClass('active');
-
-										// Window stuff.
-											$window
-												.scrollTop(0)
-												.triggerHandler('resize.flexbox-fix');
-
-										// Unlock.
-											setTimeout(function() {
-												locked = false;
-											}, delay);
-
-									}, 25);
-
+								locked = false;
 							}, delay);
 
 					}
@@ -396,6 +386,104 @@
 				&&	location.hash != '#')
 					$window.on('load', function() {
 						$main._show(location.hash.substr(1), true);
+						// Animate skill bars if About section is loaded initially
+						if (location.hash === '#about') {
+							setTimeout(animateSkillBars, 1000);
+						}
 					});
+
+		// Skill Charts Animation
+		function animateSkillBars() {
+			console.log('animateSkillBars called'); // Debug log
+			
+			// Wait a bit for DOM to be fully ready
+			setTimeout(() => {
+				const skillFills = document.querySelectorAll('.skill-fill');
+				console.log('Found skill fills:', skillFills.length); // Debug log
+				
+				if (skillFills.length === 0) {
+					console.log('No skill fills found, retrying...'); // Debug log
+					// Retry after a longer delay if elements aren't found
+					setTimeout(animateSkillBars, 500);
+					return;
+				}
+				
+				skillFills.forEach(skillFill => {
+					const level = skillFill.getAttribute('data-level');
+					skillFill.style.setProperty('--skill-level', level + '%');
+					
+					// Create intersection observer to animate when visible
+					const observer = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								console.log('Skill fill intersecting, animating:', level + '%'); // Debug log
+								// Add animation class
+								skillFill.classList.add('animate');
+								// Animate the width
+								setTimeout(() => {
+									skillFill.style.width = level + '%';
+								}, 100);
+								// Stop observing after animation
+								observer.unobserve(entry.target);
+							}
+						});
+					}, {
+						threshold: 0.5,
+						rootMargin: '0px 0px -50px 0px'
+					});
+					
+					observer.observe(skillFill);
+				});
+			}, 100);
+		}
+
+		// Function to check if About section is visible and animate skill bars
+		function checkAndAnimateSkills() {
+			if (location.hash === '#about' && $body.hasClass('is-article-visible')) {
+				console.log('About section is visible, animating skills'); // Debug log
+				animateSkillBars();
+			}
+		}
+
+		// Initialize skill charts when page loads
+		$window.on('load', function() {
+			console.log('Window loaded, hash:', location.hash); // Debug log
+			
+			// If About section is loaded initially, wait for it to be fully rendered
+			if (location.hash === '#about') {
+				console.log('About section loaded initially, waiting...'); // Debug log
+				// Wait for the article to be fully shown
+				setTimeout(() => {
+					checkAndAnimateSkills();
+				}, 1500);
+			} else if (!location.hash || location.hash === '#') {
+				// Main page - animate immediately
+				console.log('Main page loaded, animating skills'); // Debug log
+				animateSkillBars();
+			}
+		});
+
+		// Animate when switching to About section via navigation
+		$(document).on('click', 'nav a[href="#about"]', function() {
+			console.log('About nav clicked'); // Debug log
+			setTimeout(animateSkillBars, 800);
+		});
+
+		// Animate when hash changes to About section
+		$window.on('hashchange', function(event) {
+			console.log('Hash changed to:', location.hash); // Debug log
+			if (location.hash === '#about') {
+				setTimeout(animateSkillBars, 800);
+			}
+		});
+
+		// Also try to animate when the About section becomes visible
+		$window.on('scroll', function() {
+			if (location.hash === '#about' && $body.hasClass('is-article-visible')) {
+				// Debounce the scroll event
+				clearTimeout($window.data('scrollTimeout'));
+				$window.data('scrollTimeout', setTimeout(checkAndAnimateSkills, 100));
+			}
+		});
 
 })(jQuery);

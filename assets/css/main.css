@@ -88,6 +88,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-behavior: smooth; /* Add smooth scrolling */
 	}
 
 	*, *:before, *:after {
@@ -707,6 +708,400 @@ input, select, textarea {
 		/* Remove dark overlay from main images for better visibility */
 		.image.main:before {
 			display: none !important;
+		}
+
+		/* Add hover effects and interactive styling */
+		.image.main {
+			transition: all 0.3s ease;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.image.main:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+		}
+
+		.image.main img {
+			transition: transform 0.3s ease;
+		}
+
+		.image.main:hover img {
+			transform: scale(1.02);
+		}
+
+		/* Enhanced work section styling */
+		#work article {
+			transition: all 0.3s ease;
+			border-radius: 8px;
+			padding: 20px;
+			margin: 20px 0;
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.05);
+		}
+
+		#work article:hover {
+			background: rgba(255, 255, 255, 0.06);
+			border-color: rgba(255, 255, 255, 0.1);
+			transform: translateY(-3px);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		}
+
+		/* Enhanced navigation hover effects */
+		#header nav ul li a {
+			transition: all 0.3s ease;
+			position: relative;
+		}
+
+		#header nav ul li a:hover {
+			color: #ffffff !important;
+			transform: translateY(-2px);
+		}
+
+		#header nav ul li a:after {
+			content: '';
+			position: absolute;
+			bottom: -2px;
+			left: 1.45rem; /* Match the left padding of the nav links */
+			right: 1.25rem; /* Match the right padding of the nav links */
+			height: 2px;
+			background: #ffffff;
+			transition: all 0.3s ease;
+			transform: scaleX(0);
+			transform-origin: left center;
+		}
+
+		#header nav ul li a:hover:after {
+			transform: scaleX(1);
+		}
+
+		/* Enhanced button hover effects */
+		.button, .button.primary {
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.button:hover, .button.primary:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+		}
+
+		/* Enhanced link hover effects */
+		a:not(.button):not(.button.primary) {
+			transition: all 0.3s ease;
+		}
+
+		a:not(.button):not(.button.primary):hover {
+			color: #ffffff !important;
+			text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+		}
+
+		/* Enhanced contact icons hover effects */
+		.icons li a {
+			transition: all 0.3s ease;
+		}
+
+		.icons li a:hover {
+			transform: translateY(-3px) scale(1.1);
+			color: #ffffff !important;
+		}
+
+		/* Interactive Contact Cards */
+		.contact-cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.contact-card {
+			position: relative;
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 12px;
+			padding: 2rem 1.5rem;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			overflow: hidden;
+		}
+
+		.contact-card:hover {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0.3);
+			transform: translateY(-8px) scale(1.02);
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+		}
+
+		.contact-card:active {
+			transform: translateY(-4px) scale(1.01);
+		}
+
+		.contact-card .card-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+			transition: all 0.3s ease;
+			position: relative;
+		}
+
+		.contact-card .card-icon .icon {
+			font-size: 2.5rem;
+			color: #ffffff;
+			display: block;
+		}
+
+		.contact-card .card-icon .emoji-icon {
+			display: none; /* Hide emojis by default */
+		}
+
+		.contact-card:hover .card-icon {
+			transform: scale(1.1) rotate(5deg);
+		}
+
+		.contact-card h3 {
+			font-size: 1.2rem;
+			margin: 0 0 0.5rem 0;
+			color: #ffffff;
+			font-weight: 600;
+			letter-spacing: 0.1rem;
+		}
+
+		.contact-card p {
+			font-size: 0.9rem;
+			color: rgba(255, 255, 255, 0.8);
+			margin: 0;
+			line-height: 1.4;
+		}
+
+		.contact-card .card-hover-effect {
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+			transition: left 0.6s ease;
+		}
+
+		.contact-card:hover .card-hover-effect {
+			left: 100%;
+		}
+
+		/* Responsive design for contact cards */
+		@media screen and (max-width: 736px) {
+			.contact-cards {
+				grid-template-columns: 1fr;
+				gap: 1rem;
+			}
+			
+			.contact-card {
+				padding: 1.5rem 1rem;
+			}
+			
+			.contact-card .card-icon {
+				font-size: 2.5rem;
+			}
+		}
+
+		/* Hide fallback on modern browsers */
+		.contact-fallback {
+			display: none;
+		}
+
+		/* Show fallback only if needed */
+		@supports not (display: grid) {
+			.contact-cards {
+				display: none;
+			}
+			
+			.contact-fallback {
+				display: block;
+			}
+		}
+
+		/* Animated Skill Charts */
+		.skills-section {
+			margin: 2rem 0;
+		}
+
+		.skills-section h4 {
+			color: #ffffff;
+			font-size: 1.1rem;
+			margin-bottom: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 0.1rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			padding-bottom: 0.5rem;
+		}
+
+		.skill-chart {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.skill-item {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			transition: all 0.3s ease;
+		}
+
+		.skill-item:hover {
+			transform: translateX(5px);
+		}
+
+		.skill-name {
+			min-width: 140px;
+			color: rgba(255, 255, 255, 0.9);
+			font-size: 0.9rem;
+			font-weight: 500;
+		}
+
+		.skill-bar {
+			flex: 1;
+			height: 8px;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 4px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.skill-fill {
+			height: 100%;
+			background: linear-gradient(90deg, #4CAF50, #8BC34A);
+			border-radius: 4px;
+			width: 0; /* Start at 0, will animate to data-level */
+			transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			position: relative;
+		}
+
+		/* Disable shimmer/reflecting animation on skill bars */
+		.skill-fill::after {
+			display: none !important;
+			animation: none !important;
+			content: none !important;
+		}
+
+		/* Skill level indicators */
+		.skill-item::after {
+			content: attr(data-level) '%';
+			color: rgba(255, 255, 255, 0.7);
+			font-size: 0.8rem;
+			font-weight: 600;
+			min-width: 40px;
+			text-align: right;
+		}
+
+		/* Animate skill bars when they come into view */
+		.skill-fill.animate {
+			width: var(--skill-level);
+		}
+
+		/* Responsive design for skill charts */
+		@media screen and (max-width: 736px) {
+			.skill-item {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.5rem;
+			}
+			
+			.skill-name {
+				min-width: auto;
+			}
+			
+			.skill-bar {
+				width: 100%;
+			}
+		}
+
+		/* Enhanced skill section hover effects */
+		.skills-section:hover h4 {
+			color: #ffffff;
+			border-bottom-color: rgba(255, 255, 255, 0.3);
+		}
+
+		/* Enhanced header and content interactions */
+		#header .content .inner h1 {
+			transition: all 0.3s ease;
+		}
+
+		#header .content .inner:hover h1 {
+			transform: scale(1.05);
+			text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+		}
+
+		/* Enhanced section transitions */
+		article {
+			transition: all 0.3s ease;
+		}
+
+		article:hover {
+			background: rgba(255, 255, 255, 0.02);
+		}
+
+		/* Enhanced form elements */
+		input, select, textarea {
+			transition: all 0.3s ease;
+		}
+
+		input:focus, select:focus, textarea:focus {
+			transform: scale(1.02);
+			box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+		}
+
+		/* Enhanced table interactions */
+		table tbody tr {
+			transition: all 0.3s ease;
+		}
+
+		table tbody tr:hover {
+			background: rgba(255, 255, 255, 0.05);
+			transform: translateX(5px);
+		}
+
+		/* Enhanced list interactions */
+		ul li, ol li {
+			transition: all 0.3s ease;
+		}
+
+		ul li:hover, ol li:hover {
+			transform: translateX(5px);
+			color: #ffffff;
+		}
+
+		/* Enhanced blockquote interactions */
+		blockquote {
+			transition: all 0.3s ease;
+			border-left: 3px solid rgba(255, 255, 255, 0.3);
+		}
+
+		blockquote:hover {
+			border-left-color: rgba(255, 255, 255, 0.8);
+			background: rgba(255, 255, 255, 0.03);
+			transform: translateX(5px);
+		}
+
+		/* Enhanced code block interactions */
+		code {
+			transition: all 0.3s ease;
+		}
+
+		code:hover {
+			background: rgba(255, 255, 255, 0.1);
+			transform: scale(1.05);
+		}
+
+		/* Enhanced pre block interactions */
+		pre {
+			transition: all 0.3s ease;
+		}
+
+		pre:hover {
+			background: rgba(255, 255, 255, 0.05);
+			transform: translateY(-2px);
+			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 		}
 
 		@media screen and (max-width: 736px) {
