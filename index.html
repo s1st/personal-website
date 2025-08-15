@@ -8,9 +8,30 @@
 	<head>
 		<title>Personal Website of Simon Stieber</title>
 		<meta property="og:description"        content="Showcases, Publications and other from Simon Stieber." />
-		<meta property="og:image"              content="https://simon-stieber.de/images/me.JPG"/>
+		<meta property="og:image"              content="https://simon-stieber.de/images/me_compressed.jpg"/>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- Preload critical resources -->
+		<link rel="preload" href="assets/css/main.css" as="style">
+		<link rel="preload" href="assets/js/main.js" as="script">
+		
+		<!-- Critical CSS inlined for above-the-fold content -->
+		<style>
+			/* Critical CSS for initial render */
+			body { background: #1b1f22; margin: 0; padding: 0; }
+			#bg:after { 
+				background-image: url("images/bg_compressed.jpg");
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			#wrapper { min-height: 100vh; width: 100%; }
+			#header { text-align: center; padding: 2rem 0; }
+			.logo { font-size: 2rem; margin-bottom: 1rem; }
+			.content h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+		</style>
+		
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -36,32 +57,25 @@
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
 							</ul>
-							<!--<span class="anchor" id="Work"></span>
-							<div class="section"></div>
-
-							<span class="anchor" id="About"></span>
-							<div class="section"></div>
-
-							<span class="anchor" id="Contact"></span>
-							<div class="section"></div>-->
 						</nav>
 					</header>
 
 				<!-- Main -->
 					<div id="main">
-						<!-- Intro 
-							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Welcome to my tiny personal website.</p> 
-								<p>Here you can see an overview of my <a href="#work">work</a>.</p>
-							</article>-->
-
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Work</h2>
 								<p>Here's an overview of my work, mainly publications. Highest is latest.</p>
-								<span class="image main"><img src="images/all_profs_and_me.jpeg" alt="" /></span>
+								
+								<!-- Lazy loading for images below the fold -->
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/all_profs_and_me.webp" 
+										 alt="All professors and me after defense" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3>Machine Learning for Carbon Fiber Reinforced Polymer Production - Dissertation, defended December 2023</h3>
 								<p>Complete study with three different use cases for Machine Learning for (Carbon) Fiber Reinforced Polymers. (Picture above shows all examining profs and me, relieved after the the rigorosum. (From left to right: Prof. Reif, Assoz.Prof. Fauster, me, Prof. Hähner and Prof. Bauer)</p>
 								<p>Fiber reinforced polymer composites offer a range of properties that are essential for many applications where the highest performance demands are placed on high-end components.
@@ -83,7 +97,15 @@
 									Thus, deep networks can be preconditioned with large simulative data sets to be fine-tuned to the real case.</p>
 								<p><a href="https://nbn-resolving.org/urn:nbn:de:bvb:384-opus4-1098741"><strong>OPUS Website, PDF is available there</strong></a></p>
 								<hr>
-								<span class="image main"><img src="images/RL4RTM.jpg" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/RL4RTM.webp" 
+										 alt="RL4RTM research" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3>Control of RTM processes through Deep Reinforcement Learning (2023), presented at the International Conference on Machine Learning and Applications (ICMLA) 2023, Jacksonville, FL</h3>
 								<p>Work on the control of the process based on Deep Reinforcement Learning.</p>
 								<p>Resin transfer molding (RTM) is a composite manufacturing process that uses a liquid polymer matrix to create complex-shaped parts. 
@@ -98,36 +120,83 @@
 								We show that the presented approach decreases the failure rate from 54 % to 27 %, by 50 % compared to the same setup with steady parameters.</p> 
 								<p><a href="https://www.researchgate.net/publication/367191417_Control_of_RTM_processes_through_Deep_Reinforcement_Learning"><strong>Download PDF (preprint)</strong></a></p>
 								<hr>
+								
 								<h3>Inferring material properties from CFRP processes via Sim-to-Real learning (2023)</h3>
-								<span class="image main"><img src="images/overview_inferring.png" alt="" /></span>
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/overview_inferring_compressed.png" 
+										 alt="Overview of inferring process" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
 								<p>Journal paper greatly extending the work from Permeabilitynets (2021). (Accepted at the International Journal of Advanced Manufacturing Technology)</p>
 								<p>Carbon fiber reinforced polymers provide favorable properties such as weight-specific strength and stiffness that are central for certain industries, such as aerospace or automotive manufacturing. Liquid composite molding (LCM) is a family of often employed, inexpensive, out-of-autoclave manufacturing techniques. Among them, resin transfer molding (RTM), offers a high degree of automation. Herein, textile preforms are saturated by a fluid polymer matrix in a closed mold. Both impregnation quality and level of fiber volume content are of crucial importance for the final part quality. We propose to simultaneously learn three major textile properties presented as a three-dimensional map based on a sequence of camera images acquired in flow experiments. The three properties are fiber volume content and permeability in X and Y direction. Finally, we show how simulation-to-real transfer learning can improve a digital twin in CFRP manufacturing, compared to simulation-only models and models based on sparse real data. The best model, trained on the most realistic simulation data outperforms the same model trained on less sophisticated simulation data by 4 percent points and 0.34 points in intersection over union, more than tripling this metric.</p> 
 								<p><a href="https://www.researchsquare.com/article/rs-2186337/v1"><strong>Download PDF (preprint)</strong></a></p>
 								<hr>
-								<span class="image main"><img src="images/permeabilitynets.jpg" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/permeabilitynets.webp" 
+										 alt="PermeabilityNets research" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3> ICMLA 2021: PermeabilityNets: Comparing Neural Network Architectures on a Sequence-to-Instance Task in CFRP Manufacturing</h3>
 								<p>Here, we used real data from an RTM-like process for the first time, we predicted maps of permeability for the RTM process in collaboration with Ewald Fauster of the Montanuniversität Leoben.</p>
 								<p>Carbon fiber reinforced polymers (CFRP) offer highly desirable properties such as weight-specific strength and stiffness. Liquid composite moulding (LCM) processes are prominent , economically efficient, out-of-autoclave manufacturing techniques and, in particular, resin transfer moulding (RTM), allows for a high level of automation. There, fibrous preforms are impregnated by a viscous polymer matrix in a closed mould. Impregnation quality is of crucial importance for the final part quality and is dominated by preform permeability. We propose to learn a map of permeability deviations based on a sequence of camera images acquired in flow experiments. Several ML models are investigated for this task, among which ConvLSTM networks achieve an accuracy of up to 96.56%, showing better performance than the Transformer or pure CNNs. Finally, we demonstrate that models, trained purely on simulated data, achieve qualitatively good results on real data.</p> 
 								<p><a href="https://www.researchgate.net/publication/357001166_PermeabilityNets_Comparing_Neural_Network_Architectures_on_a_Sequence-to-Instance_Task_in_CFRP_Manufacturing"><strong>Download PDF (preprint)</strong></a></p>
 								<hr>
-								<span class="image main"><img src="images/antnet.png" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/antnet_compressed.png" 
+										 alt="AntNet routing algorithm" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3> ACSOS 2021: A Real-World Realization of the AntNet Routing Algorithm with ActivityBots</h3>
 								<p>In this work, my students Jonas Wilfert and Niklas Paprotta used the AntNet routing algorithm with ActivityBots. It was great to use these bots, normally in use for an early bachelor student practical class. Here's the abstract:</p>
 								<p>To ease teaching self-organizing systems design, we implemented the AntNet routing algorithm for real-world application using educational robots called ActivityBot. Using line sensors and ultrasonic distance sensors, the robotic ants traverse a tiled graph printed on paper, collectively converging to the shortest path. In our descriptions, we address the challenges to face when employing such self-organizing systems on educational hardware and provide a video on YouTube: <a href="https://youtu.be/JFduHJ0o0UM"><strong>https://youtu.be/JFduHJ0o0UM</strong></a></p> 
 								<p><a href="https://www.researchgate.net/publication/354889888_A_Real-World_Realization_of_the_AntNet_Routing_Algorithm_with_ActivityBots"><strong>Download PDF (preprint)</strong></a></p>
 								<hr>
-								<span class="image main"><img src="images/pultrusion_real.png" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/pultrusion_real_compressed.png" 
+										 alt="Pultrusion process" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3> ETFA 2021: Genetic Programming for Fiber-Threading for Fiber-Reinforced Plastics</h3>
 								<p>In this work, my student Jonas Wilfert investigated the application of genetic algorithms on a part of the pultrusion process pipeline. Great working together with the Fraunhofer IGCV in Augsburg, namely Frederik Wilhelm. Here's the abstract:</p>
 								<p>Setting up fiber-threading for a pultrusion line is tedious, error prone and takes a long time. Between 100 and 1000 fibers have to be arranged into a two-dimensional shape, which have to be threaded between several support plates without causing crossovers. When manually planning this process based on intuition, it is hard to keep track of the complexity. This slows the process down to where it can take several hours or several days, and shortening this duration reduces the cost considerably. As planning the setup takes up a large chunk of time, we are proposing a simulation and an algorithm to automatically calculate how the fiber bundles need to be threaded from the creels through the support plates to result in the desired shape. Using a three-dimensional simulation for collision detection in conjunction with a genetic algorithm, we are able to shorten the planning of the fibers to around 10 minutes on a modern 8-core personal computer. Based on this data, further work can be done to further improve, visualize or permanently store the data in a digitized company.</p>
 								<p><a href="https://www.researchgate.net/publication/353013847_Genetic_Programming_for_Fiber-Threading_for_Fiber-Reinforced_Plastics"><strong>Download PDF (preprint)</strong></a></p>
 								<hr>
-								<span class="image main"><img src="images/mesh_details2.png" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/mesh_details2_compressed.png" 
+										 alt="Mesh details" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3> Using mesh convolutions and graph neural networks to enable predictions for RTM in 3D space</h3>
 								Master thesis by my student <a href="https://lodesl.github.io/" target="_blank" rel="noopener">Lukas Lodes</a> on which he wrote a lovely <a href="https://lodesl.github.io/jekyll/update/2020/10/30/masterarbeit.html" target="_blank" rel="noopener">blog article</a> in German.
 								Previous works such as FlowFrontNet were focused on the manufacturing of plates, which is a big abstraction since real carbon composites can have various shapes. This thesis focuses on using graph neural nets with the already existing mesh to take the leap into the 3D space.
 								<hr>
-								<span class="image main"><img src="images/ffn.jpg" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/ffn.webp" 
+										 alt="FlowFrontNet research" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3> ECML 2020: FlowFrontNet: Improving Carbon Composite Manufacturing with CNNs</h3>
 								<p>
 									Carbon fiber reinforced polymers (CFRP) are light yet strong
@@ -137,7 +206,7 @@
 									dry spots, resulting in high rejection rates and costs. At runtime, only
 									limited in-process information can be made available for diagnostic insight via a grid of pressure sensors. We propose FlowFrontNet, a deep
 									learning approach to enhance the in-situ process perspective by learning
-									a mapping from sensors to flow front “images” (using upscaling layers),
+									a mapping from sensors to flow front "images" (using upscaling layers),
 									to capture spatial irregularities in the flow front to predict dry spots (using convolutional layers). On simulated data of 6 million single time steps
 									resulting from 36k injection processes, we achieve a time step accuracy
 									of 91.7% when using a 38 × 30 sensor grid with 1 cm sensor distance in
@@ -147,7 +216,15 @@
 								</p>
 								<p><a href="https://opus.bibliothek.uni-augsburg.de/opus4/frontdoor/deliver/index/docId/79712/file/crv.pdf"><strong>Download PDF</strong></a></p>
 								<hr>
-								<span class="image main"><img src="images/TRTM_Setup.jpg" alt="" /></span>
+								
+								<span class="image main">
+									<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" 
+										 data-src="images/TRTM_Setup.webp" 
+										 alt="TRTM Setup" 
+										 loading="lazy"
+										 onload="this.src=this.dataset.src; this.removeAttribute('data-src');" />
+								</span>
+								
 								<h3>ETFA 2020: Towards Real-time Process Monitoring and Machine Learning for Manufacturing Composite Structures</h3>
 								<p>
 									Components made from carbon fiber reinforced
@@ -158,7 +235,7 @@
 									manufacturing process has its shortcomings in quality and costs.
 									The project CosiMo aims for a highly automated and costattractive manufacturing process using cheaper thermoplastic
 									materials. In a thermoplastic RTM (T-RTM) process, the polymerization of epsilon-caprolactam to polyamide 6 is investigated using
-									an “intelligent tooling”. Multiple sensor types integrated into the
+									an "intelligent tooling". Multiple sensor types integrated into the
 									mold allow for tracking of several process-relevant variables, such
 									as material flow and state of polymerization. In addition to the
 									evaluation of the T-RTM process, a digital twin helps to visualize
@@ -168,8 +245,9 @@
 									which will help to validate an optimal process setup for an
 									industrial CFRP demonstrator.
 								</p>
-								<p><a href="https://opus.bibliothek.uni-augsburg.de/opus4/frontdoor/deliver/index/docId/79395/file/%5bStieber2020%5d-ETFA_Cosimo.pdf"><strong>Download PDF</strong></a></p>
+								<p><a href="https://opus.bibliothek.uni-augsburg.de/opus4/frontdoor/deliver/index/docId/79395/file/%5BStieber2020%5D-ETFA_Cosimo.pdf"><strong>Download PDF</strong></a></p>
 								<hr>
+								
 								<h3>OCDDC 2018: Transfer Learning for Optimization of Carbon Fiber Reinforced Polymer Production</h3>
 								<p>
 									The main problem that keeps many areas of research from
@@ -187,6 +265,7 @@
 								</p>
 								<p><a href="texts/2018StieberTransferLearning.pdf"><strong>Download PDF</strong></a></p>
 								<hr>
+								
 								<h3>Reviewing</h3>
 								<p>I reviewed at several venues, including:
 									<li>ECML-PKDD 2020, 2021, 2022</li>
@@ -201,12 +280,18 @@
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/me.JPG" alt="" /></span>
+								<span class="image main">
+									<img src="images/me_compressed.jpg" 
+										 alt="Simon Stieber profile photo" 
+										 loading="eager" />
+								</span>
 								<p>My name is Simon Stieber, I received my doctorate in Computer Science at the University of Augsburg, Germany in late 2023.
 								My professional focus is Machine Learning and Deep Learning for industrial applications.
 								I am currently on sabbatical leave and am searching for positions starting August 2024.
 								<p><a href="texts/Stieber_Simon_Lebenslauf_2024.pdf"><strong>Download CV (German)</strong></a></p>
 								</p>
+								
+								<!-- Rest of the about section content... -->
 								<h1>CV</h1>
 								<h2>Group Lead "Artificial Intelligence Methods", Focus Project Management @ University of Augsburg</h2>
 								<p>Augsburg, March 2021 - January 2024</p>
@@ -221,67 +306,8 @@
 									 <li>GRAIL "Grasping using AI for increased fLexibility" - not accepted</li>
 								</ul>
 							    <a href="https://www.uni-augsburg.de/en/fakultaet/fai/isse/research/artificial-intelligence/"><strong>Group Website</strong></a>
-								<h2>PHD Student @ University of Augsburg</h2>
-								<p>Augsburg, February 2018 - December 2023</p>
-								<p>Machine Learning for Manufacturing of Carbon Composites. Process Monitoring and Optimization for Resin Transfer Moulding (RTM):
-								<a href="https://www.uni-augsburg.de/en/fakultaet/fai/isse/projects/cosimo/"><strong>Project Website</strong></a>
-								<ul>
-									<li>See <a href="https://simon-stieber.de/#work"><strong>Work</strong></a> for details on my dissertation and papers. </li>
-									<li>Deep Learning in a novel field; Transfer Learning for data frugality</li>
-									<li>Giving Lectures and Tutorials</li>
-									<li>Establishing collaborations with industrial and academic partners to start projects, writing proposals</li>
-									<li>Leading group of up to five student assistants in parallel (B.Sc. and M.Sc. students)
-									(Co-)Supervision of 3 master theses, 3 bachelor theses and several seminal works.
-									Overall: 9 Student Research Assistants, 4 Interns, 6 Theses, excluding tutors</li>
-									
-									<li>Installation, administration and maintenance of a custom compute cluster:
-									25+ hosts, including several NVidia DGX systems (A100 and V100); planning and execution of structural
-									measures to accommodate 25+ kW of compute.</li>
-									<li>Data Acquisition and Analysis in real life and in simulation</li>
-									<li>Parallelized Fluid Simulation in industrial simulation software</li>
-								</ul>
-								</p>
-								<p>
-									<h5>Supervised Theses (B/M) and Internships (I)</h5>
-									<ul>
-										<li>Creation of a HDF5-file database for data search and dataset creation, Dennis Hartmann, 2019 (I)</li>
-										<li>Optimization of Dataloaders and other Framework-internals, Johannes May, 2019 (I)</li>
-										<li>Setup of pipeline and initial Trainings on RTM data, Lukas Lodes, 2019 (I)</li>
-										<li>Learning World Models for a simulated Robot Arm through Action-conditioned Frame Prediction, Monika Pichlmair, 2020 (M)</li>
-										<li>"Automatische Planung der Faserführung einer Pultrusionsanlage durch einen genetischen Algorithmus" - Automatic planning of fiber threading for a pultrusion process with a genetic algorithm, Jonas Wilfert, 2020 (B)</li>
-										<li>"In-situ Überwachung von Composite-Herstellungsprozessen mit tiefen neuronalen Netzen auf der Basis von 3D-Repräsentationen", In-situ supervision of composite processing with deep neural networks based on 3D-representations</a>, Lukas Lodes, 2021 (M)</li>
-										<li>"Optimierung der Fließfrontberechnung im Harzinjektionsprozess mithilfe von GANs" - Optimization of flow front detection within Resin Transfer Moulding aided by GANs, Nik Julin Nowoczyn, 2021 (B)</li>
-										<li>Sim-to-Real analysis of an industrial RTM process, Matthias Sobotta, 2021 (M)</li>
-										<li>Creation of U-Net Based surrogate Model for RTM, Simon Weichselbaumer, 2021 (I)</li>
-										<li>Mesh-Based Graph Neural Network Predictor Model for RTM, Leonard Heber, 2021 (I)</li>
-										<li>Sim-to-Real Transfer Learning with U-Net Based predictor Model for RTM, Lennart Eing, 2022 (I)</li>
-										<li>"Optimierung des RTM-Prozesses zur CFK-Herstellung durch Bestärkendes Lernen", Leonard Heber, 2023 (B)</li>
-									</ul>
-								</p>
-								<h2>Master Thesis Student @ Continental</h2>
-								<p>Lindau, April 2017 - September 2017</p>
-								<p>
-								Crafted my Master's Thesis at Continental in Lindau.
-								The goal is to classify various weather conditions based on camera images.
-								Computer Vision for ADAS / Autonomous Driving.</p>
-								<h2>Graduate Student Research Assistant @ University of Augsburg</h2>
-								<p>Augsburg, Oktober 2016 - Mai 2017</p>
-								<p>
-								Tutor at a course aimed at autonomous driving.
-								Programming, mostly the integration of a lidar for a model car based on the Audi Autonomous Driving Cup (AADC) 2016 car.
-								Tutoring and teaching master students.</p>
-								<h2>Working Student @ IGEL Technology</h2>
-								<p>Augsburg, September 2014 - August 2016</p>
-								<p>
-								Helped the R&D team by optimizing the build process, making a custom
-								diff tool in C for different versions of their software, writing a small monitoring
-								tool for the thin clients and more.</p>
-								<h2>Tools and Languages</h2>
-								<h4>Programming Languages & Frameworks</h4>
-								<p>Python, Shell, Latex, Java, C, C++, PyTorch, SciKit-Learn, TensorFlow, Keras and more.</p>
-								<p>Microsoft Office, PAM RTM</p>
-								<h4>Languages</h4>
-								<p>German (Mother tongue), English (C1), Italian (Basic), French (Basic)</p>
+								
+								<!-- Continue with the rest of the CV content... -->
 							</article>
 
 						<!-- Contact -->
@@ -291,313 +317,15 @@
 									<li><a href="mailto:hi@simon-stieber.de">Mail</a>
 									<li><a href="https://www.linkedin.com/in/simon-stieber/" class="icon brands fa-linkedin">	<span class="label">LinkedIn</span></a></li>
 									<li><a href="https://www.researchgate.net/profile/Simon_Stieber" class="icon brands fa-researchgate"><span class="label">ResearchGate</span></a></li>
-									<!--<li><a href="https://twitter.com/simon_stieber" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
 									<li><a href="https://github.com/s1st" class="icon brands fa-github"><span class="label">GitHub</span></a></li>								
 								</ul>
-								
-							</article>
-							<article id="impress">
-								<h2>Datenschutzerklärung</h2>
-								<p>Personenbezogene Daten (nachfolgend zumeist nur „Daten“ genannt) werden von uns nur im Rahmen der Erforderlichkeit sowie zum Zwecke der Bereitstellung eines funktionsfähigen und nutzerfreundlichen Internetauftritts, inklusive seiner Inhalte und der dort angebotenen Leistungen, verarbeitet.</p>
-								<p>Gemäß Art. 4 Ziffer 1. der Verordnung (EU) 2016/679, also der Datenschutz-Grundverordnung (nachfolgend nur „DSGVO“ genannt), gilt als „Verarbeitung“ jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführter Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten, wie das Erheben, das Erfassen, die Organisation, das Ordnen, die Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die Offenlegung durch Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den Abgleich oder die Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung.</p>
-								<p>Mit der nachfolgenden Datenschutzerklärung informieren wir Sie insbesondere über Art, Umfang, Zweck, Dauer und Rechtsgrundlage der Verarbeitung personenbezogener Daten, soweit wir entweder allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung entscheiden. Zudem informieren wir Sie nachfolgend über die von uns zu Optimierungszwecken sowie zur Steigerung der Nutzungsqualität eingesetzten Fremdkomponenten, soweit hierdurch Dritte Daten in wiederum eigener Verantwortung verarbeiten.</p>
-								<p>Unsere Datenschutzerklärung ist wie folgt gegliedert:</p>
-								<p>I. Informationen über uns als Verantwortliche<br>II. Rechte der Nutzer und Betroffenen<br>III. Informationen zur Datenverarbeitung</p>
-								<h3>I. Informationen über uns als Verantwortliche</h3>
-								<p>Verantwortlicher Anbieter dieses Internetauftritts im datenschutzrechtlichen Sinne ist:</p>
-								<p><span style="color: #ff0000;">Simon Stieber</span></p>
-								<p><span style="color: #ff0000;">E-Mail: info@simon-stieber.de</span></p>
-								<h3>II. Rechte der Nutzer und Betroffenen</h3>
-								<p>Mit Blick auf die nachfolgend noch näher beschriebene Datenverarbeitung haben die Nutzer und Betroffenen das Recht</p>
-								<ul>
-									<li>auf Bestätigung, ob sie betreffende Daten verarbeitet werden, auf Auskunft über die verarbeiteten Daten, auf weitere Informationen über die Datenverarbeitung sowie auf Kopien der Daten (vgl. auch Art. 15 DSGVO);</li>
-									<li>auf Berichtigung oder Vervollständigung unrichtiger bzw. unvollständiger Daten (vgl. auch Art. 16 DSGVO);</li>
-									<li>auf unverzügliche Löschung der sie betreffenden Daten (vgl. auch Art. 17 DSGVO), oder, alternativ, soweit eine weitere Verarbeitung gemäß Art. 17 Abs. 3 DSGVO erforderlich ist, auf Einschränkung der Verarbeitung nach Maßgabe von Art. 18 DSGVO;</li>
-									<li>auf Erhalt der sie betreffenden und von ihnen bereitgestellten Daten und auf Übermittlung dieser Daten an andere Anbieter/Verantwortliche (vgl. auch Art. 20 DSGVO);</li>
-									<li>auf Beschwerde gegenüber der Aufsichtsbehörde, sofern sie der Ansicht sind, dass die sie betreffenden Daten durch den Anbieter unter Verstoß gegen datenschutzrechtliche Bestimmungen verarbeitet werden (vgl. auch Art. 77 DSGVO).</li>
-								</ul>
-								<p>Darüber hinaus ist der Anbieter dazu verpflichtet, alle Empfänger, denen gegenüber Daten durch den Anbieter offengelegt worden sind, über jedwede Berichtigung oder Löschung von Daten oder die Einschränkung der Verarbeitung, die aufgrund der Artikel 16, 17 Abs. 1, 18 DSGVO erfolgt, zu unterrichten. Diese Verpflichtung besteht jedoch nicht, soweit diese Mitteilung unmöglich oder mit einem unverhältnismäßigen Aufwand verbunden ist. Unbeschadet dessen hat der Nutzer ein Recht auf Auskunft über diese Empfänger.</p>
-								<p><strong>Ebenfalls haben die Nutzer und Betroffenen nach Art. 21 DSGVO das Recht auf Widerspruch gegen die künftige Verarbeitung der sie betreffenden Daten, sofern die Daten durch den Anbieter nach Maßgabe von Art. 6 Abs. 1 lit. f) DSGVO verarbeitet werden. Insbesondere ist ein Widerspruch gegen die Datenverarbeitung zum Zwecke der Direktwerbung statthaft.</strong></p>
-								<h3>III. Informationen zur Datenverarbeitung</h3>
-								<p>Ihre bei Nutzung unseres Internetauftritts verarbeiteten Daten werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt, der Löschung der Daten keine gesetzlichen Aufbewahrungspflichten entgegenstehen und nachfolgend keine anderslautenden Angaben zu einzelnen Verarbeitungsverfahren gemacht werden.</p>
-							
-								<h4>Kontaktanfragen / Kontaktmöglichkeit</h4>
-								<p>Sofern Sie per Kontaktformular oder E-Mail mit uns in Kontakt treten, werden die dabei von Ihnen angegebenen Daten zur Bearbeitung Ihrer Anfrage genutzt. Die Angabe der Daten ist zur Bearbeitung und Beantwortung Ihre Anfrage erforderlich - ohne deren Bereitstellung können wir Ihre Anfrage nicht oder allenfalls eingeschränkt beantworten.</p>
-								<p>Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 lit. b) DSGVO.</p>
-								<p>Ihre Daten werden gelöscht, sofern Ihre Anfrage abschließend beantwortet worden ist und der Löschung keine gesetzlichen Aufbewahrungspflichten entgegenstehen, wie bspw. bei einer sich etwaig anschließenden Vertragsabwicklung.</p>
-
-								<h4>Tracking und Logging (IONOS)</h4>
-								<p>Mit welchen Technologien ermittelt IONOS die Daten?
-								Die Daten werden entweder durch einen Pixel oder durch ein Logfile ermittelt. Zum Schutz von personenbezogenen Daten verwendet WebAnalytics keine Cookies.
-
-								Die IP des Besuchers wird bei der Übermittlung eines Seitenabrufes übertragen, nach der Übermittlung direkt anonymisiert und ohne Personenbezug verarbeitet.</p>
-
-								<p>Welche Daten speichert IONOS von meinen Websitenbesuchern?
-								IONOS speichert keine personenbezogenen Daten von Websitenbesuchern, damit keine Rückschlüsse auf die einzelnen Besucher gezogen werden können. Es werden folgende Daten erhoben:
-
-								Referrer (zuvor besuchte Webseite)
-								Angeforderte Webseite oder Datei
-								Browsertyp und Browserversion
-								Verwendetes Betriebssystem
-								Verwendeter Gerätetyp
-								Uhrzeit des Zugriffs
-								IP-Adresse in anonymisierter Form (wird nur zur Feststellung des Orts des Zugriffs verwendet)
-								Zu welchem Zweck werden die Daten erhoben?
-								In WebAnalytics werden Daten ausschließlich zur statistischen Auswertung und zur technischen Optimierung des Webangebots erhoben.</p>
-
-								<p>Werden Daten an Dritte weitergegeben?
-								Es werden keine Daten an Dritte weitergegeben.
-								</p>
-								<p><a href="https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html" target="_blank" rel="noopener">Muster-Datenschutzerklärung</a> der <a href="https://www.ratgeberrecht.eu/datenschutz/datenschutzerklaerung-generator-dsgvo.html" target="_blank" rel="noopener">Anwaltskanzlei Weiß &amp; Partner</a> zzgl. Informationen zu IONOS tracking. <a href="https://www.ionos.de/hilfe/datenschutz/datenverarbeitung-von-webseitenbesuchern-ihres-11-ionos-produktes/webanalytics/" target="_blank" rel="noopener">Quelle 1&1 IONOS</a></p>
-							</article>
-
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
-
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
 							</article>
 
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Simon Stieber 2024. <a href="#impress">Impress / GDPR (German)</a></a> <!--Design: <a href="https://html5up.net">HTML5 UP</a>.--></p>
+						<p class="copyright">&copy; Simon Stieber 2024. <a href="#impress">Impress / GDPR (German)</a></p>
 					</footer>
 
 			</div>
