@@ -1,0 +1,19 @@
+# robots.txt for simon-stieber.de
+# Personal website of Simon Stieber - AI & Machine Learning Expert
+
+User-agent: *
+Allow: /
+
+# Disallow unnecessary files
+Disallow: /assets/.DS_Store
+Disallow: /.DS_Store
+Disallow: /*.sh$
+
+# Allow important resources
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /images/
+Allow: /texts/
+
+# Sitemap location
+Sitemap: https://simon-stieber.de/sitemap.xml
