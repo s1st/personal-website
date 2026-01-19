@@ -15,5 +15,31 @@ Allow: /assets/js/
 Allow: /images/
 Allow: /texts/
 
-# Sitemap location
+# AI Crawlers - explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap and LLMs.txt locations
 Sitemap: https://simon-stieber.de/sitemap.xml
+# LLMs.txt: https://simon-stieber.de/llms.txt

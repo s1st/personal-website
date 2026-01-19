@@ -1,0 +1,67 @@
+# Simon Stieber
+
+> Dr. Simon Stieber - Senior AI Engineer specializing in Machine Learning, Deep Learning, NLP, and industrial AI applications.
+
+## Overview
+
+Simon Stieber is a Senior AI Engineer at XITASO GmbH in Munich, Germany. He holds a PhD in Computer Science from the University of Augsburg (2023), with research focused on Machine Learning for carbon fiber reinforced polymer (CFRP) manufacturing.
+
+## Current Role
+
+Senior AI Engineer at XITASO (since February 2025):
+- AI engineering: knowledge retrieval, chatbots, NLP, RAG, computer vision
+- MLOps: model training, deployment, maintenance
+- Software engineering with and around LLMs
+- Business development and AI strategy
+- Speaking at conferences and expert groups
+
+## Expertise
+
+- Large Language Models (LLMs) and RAG systems
+- Natural Language Processing (NLP)
+- Machine Learning & Deep Learning
+- Computer Vision
+- Reinforcement Learning
+- MLOps and AI operationalization
+- Industrial AI applications
+
+## Technical Skills
+
+- Python, PyTorch, TensorFlow/Keras
+- LangChain, LangGraph
+- Scikit-Learn
+- Kubernetes, MLFlow
+- Shell scripting, LaTeX
+
+## Recent Publications
+
+### Industry Blog Series (2025)
+"Operationalisierung von KI-Lösungen" - Three-part series on XITASO tech blog about bringing AI from prototype to production:
+1. Skalierung & Kostenoptimierung - Caching, multi-model routing, Kubernetes autoscaling
+2. Monitoring, Backup & Model-Retraining - Drift detection, backup orchestration, maintenance
+3. Security-by-Design - MLOps security, prompt injection defense, best practices
+
+### Academic Research
+- PhD Dissertation: "Machine Learning for Carbon Fiber Reinforced Polymer Production" (2023)
+- "Control of RTM processes through Deep Reinforcement Learning" - ICMLA 2023
+- "Inferring material properties from CFRP processes via Sim-to-Real learning" (2023)
+- "PermeabilityNets: Comparing Neural Network Architectures" - ICMLA 2021
+- "FlowFrontNet: Improving Carbon Composite Manufacturing with CNNs" - ECML 2020
+
+## Speaking & Presentations
+
+Conference talks at ICMLA 2023, ICMLA 2021, ECML-PKDD 2020, ETFA 2020/2021.
+Member of VDMA Machine Learning Expert Group (since 2025).
+
+## Contact
+
+- Website: https://simon-stieber.de
+- Email: hi@simon-stieber.de
+- LinkedIn: https://www.linkedin.com/in/simon-stieber/
+- GitHub: https://github.com/s1st
+- ResearchGate: https://www.researchgate.net/profile/Simon_Stieber
+
+## Source Files
+
+- Main page: https://simon-stieber.de/
+- CV (PDF): https://simon-stieber.de/texts/Stieber_Simon_CV_2025.pdf
