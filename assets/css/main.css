@@ -1202,6 +1202,15 @@ button {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* Primary button: accent color instead of white */
+.button.primary {
+  background-color: #64B5F6 !important;
+  color: #1b1f22 !important;
+}
+.button.primary:hover {
+  background-color: rgb(148.2012195122, 204.012195122, 248.7987804878) !important;
+}
+
 /* Enhanced link hover effects */
 a:not(.button):not(.button.primary) {
   transition: all 0.3s ease;

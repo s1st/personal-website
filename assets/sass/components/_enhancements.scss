@@ -63,6 +63,16 @@
 	}
 }
 
+/* Primary button: accent color instead of white */
+.button.primary {
+	background-color: map-get($palette, accent) !important;
+	color: #1b1f22 !important;
+
+	&:hover {
+		background-color: lighten(map-get($palette, accent), 10%) !important;
+	}
+}
+
 /* Enhanced link hover effects */
 a:not(.button):not(.button.primary) {
 	transition: all 0.3s ease;
