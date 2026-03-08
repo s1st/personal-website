@@ -1,0 +1,130 @@
+/* Remove dark overlay from main images for better visibility */
+.image.main:before {
+	display: none !important;
+}
+
+/* Image hover effects */
+.image.main {
+	transition: all 0.3s ease;
+	border-radius: 8px;
+	overflow: hidden;
+
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+	}
+
+	img {
+		transition: transform 0.3s ease;
+	}
+
+	&:hover img {
+		transform: scale(1.02);
+	}
+}
+
+/* Enhanced navigation hover effects */
+#header nav ul li a {
+	transition: all 0.3s ease;
+	position: relative;
+
+	&:hover {
+		color: map-get($palette, accent) !important;
+		transform: translateY(-2px);
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 1.45rem;
+		right: 1.25rem;
+		height: 2px;
+		background: map-get($palette, accent);
+		transition: all 0.3s ease;
+		transform: scaleX(0);
+		transform-origin: left center;
+	}
+
+	&:hover:after {
+		transform: scaleX(1);
+	}
+}
+
+/* Enhanced button hover effects */
+.button, .button.primary {
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+	}
+}
+
+/* Enhanced link hover effects */
+a:not(.button):not(.button.primary) {
+	transition: all 0.3s ease;
+
+	&:hover {
+		color: map-get($palette, accent) !important;
+		text-shadow: 0 0 8px rgba(map-get($palette, accent), 0.3);
+	}
+}
+
+/* Enhanced contact icons hover effects */
+.icons li a {
+	transition: all 0.3s ease;
+
+	&:hover {
+		transform: translateY(-3px) scale(1.1);
+		color: #ffffff !important;
+	}
+}
+
+/* Enhanced header content interactions */
+#header .content .inner {
+	h1 {
+		transition: all 0.3s ease;
+	}
+
+	&:hover h1 {
+		transform: scale(1.05);
+		text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+	}
+}
+
+/* Enhanced list interactions */
+ul li, ol li {
+	transition: all 0.3s ease;
+}
+
+ul li:hover, ol li:hover {
+	transform: translateX(5px);
+	color: #ffffff;
+}
+
+/* Enhanced blockquote interactions */
+blockquote {
+	transition: all 0.3s ease;
+	border-left: 3px solid rgba(255, 255, 255, 0.3);
+
+	&:hover {
+		border-left-color: map-get($palette, accent);
+		background: rgba(255, 255, 255, 0.03);
+		transform: translateX(5px);
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.image.main {
+		margin: 2rem 0;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.image.main {
+		margin: 1.5rem 0;
+	}
+}

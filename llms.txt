@@ -18,6 +18,7 @@ Senior AI Engineer at XITASO (since February 2025):
 ## Expertise
 
 - Large Language Models (LLMs) and RAG systems
+- AI Coding Assistants and Agentic Coding
 - Natural Language Processing (NLP)
 - Machine Learning & Deep Learning
 - Computer Vision
@@ -30,10 +31,14 @@ Senior AI Engineer at XITASO (since February 2025):
 - Python, PyTorch, TensorFlow/Keras
 - LangChain, LangGraph
 - Scikit-Learn
-- Kubernetes, MLFlow
+- Docker, Kubernetes, MLOps
 - Shell scripting, LaTeX
 
 ## Recent Publications
+
+### Survey Paper (2026)
+"From Code Production to Code Orchestration: How AI Coding Assistants are Reshaping Software Engineering" — 27-page survey synthesizing 75+ peer-reviewed studies on the real impact of AI coding assistants. Introduces the "testing paradox," maps ~30% vulnerability rates in AI-generated code, and coins the term "comprehension debt."
+- ResearchGate: https://www.researchgate.net/publication/401655474
 
 ### Industry Blog Series (2025)
 "Operationalisierung von KI-Lösungen" - Three-part series on XITASO tech blog about bringing AI from prototype to production:
@@ -50,8 +55,9 @@ Senior AI Engineer at XITASO (since February 2025):
 
 ## Speaking & Presentations
 
-Conference talks at ICMLA 2023, ICMLA 2021, ECML-PKDD 2020, ETFA 2020/2021.
-Member of VDMA Machine Learning Expert Group (since 2025).
+- Invited Talk: "Intelligentes Wissensmanagement" at FH Südwestfalen (September 2025)
+- VDMA Machine Learning Expert Group member (since May 2025)
+- Conference talks at ICMLA 2023, ICMLA 2021, ECML-PKDD 2020, ETFA 2020/2021.
 
 ## Contact
 

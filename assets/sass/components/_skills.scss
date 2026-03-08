@@ -1,0 +1,70 @@
+/* Tag-based Skill Groups */
+
+.skills-section {
+	margin-bottom: 2rem;
+
+	h4 {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 0.9rem;
+		font-weight: 600;
+		margin-bottom: 1rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+		text-transform: uppercase;
+		letter-spacing: 0.15rem;
+	}
+}
+
+.skill-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.skill-tag {
+	display: inline-block;
+	padding: 0.35rem 0.85rem;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.05rem;
+	transition: all 0.2s ease;
+	border: 1px solid transparent;
+}
+
+.skill-tag--expert {
+	background: rgba(map-get($palette, accent), 0.2);
+	color: map-get($palette, accent);
+	border-color: rgba(map-get($palette, accent), 0.4);
+}
+
+.skill-tag--advanced {
+	background: rgba(255, 255, 255, 0.08);
+	color: rgba(255, 255, 255, 0.85);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.skill-tag--working {
+	background: rgba(255, 255, 255, 0.04);
+	color: rgba(255, 255, 255, 0.6);
+	border-color: rgba(255, 255, 255, 0.1);
+}
+
+.skill-tag--language {
+	background: rgba(map-get($palette, accent), 0.1);
+	color: rgba(255, 255, 255, 0.8);
+	border-color: rgba(map-get($palette, accent), 0.25);
+}
+
+.skill-tag:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 736px) {
+	.skill-tag {
+		font-size: 0.75rem;
+		padding: 0.3rem 0.7rem;
+	}
+}
