@@ -55,10 +55,12 @@ Senior AI Engineer at XITASO (since February 2025):
 
 ## Speaking & Presentations
 
-- Meetup: "Coding Agents, Harnesses, and Why State and Harness Matter More Than the Model" at appliedAI Developers Meetup, Munich (May 2026, upcoming; hosted at Celonis)
+- Meetup: "Coding Agents, Harnesses, and Why State and Harness Matter More Than the Model" at appliedAI Developers Meetup, Munich (May 2026; hosted at Celonis)
 - Conference: "Vertrauen ist gut, Kontrolle ist besser: Agentic AI in der industriellen Praxis" at data:unplugged 2026, Münster (March 2026)
 - Meetup: "AI for your Customers, AI for your Code" at XITASO AI Meetup, Málaga (March 2026)
+- Showcase: Synthetic Data Pipeline at IPAI Experience Day, Heilbronn (November 2025)
 - Invited Talk: "Intelligentes Wissensmanagement" at FH Südwestfalen (September 2025)
+- Panel: "Mensch trifft KI" at KI-Tag 2025, AI Hub Nürnberg (2025)
 - VDMA Machine Learning Expert Group member (since May 2025)
 - Conference talks at ICMLA 2023, ICMLA 2021, ECML-PKDD 2020, ETFA 2020/2021.
 
